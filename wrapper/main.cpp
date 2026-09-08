@@ -68,34 +68,124 @@ void runAssignment2(int algorithm)
 {
     string command;
 
-    
-  
+    if (algorithm == 1)
+    {
+        command = "../buddy_assignment_2/assignment2 tc ../buddy_assignment_2/tests/tc_10.txt";
+    }
+    else if (algorithm == 2)
+    {
+        command = "../buddy_assignment_2/assignment2 bc ../buddy_assignment_2/tests/bc_10.txt";
+    }
+    else if (algorithm == 3)
+    {
+        command = "../buddy_assignment_2/assignment2 cc ../buddy_assignment_2/tests/cc_10.txt";
+    }
+    else
+    {
+        cout << "Invalid algorithm choice!\n";
+        return;
+    }
 
-        if (algorithm == 1)
-        {
-            command = "../buddy_assignment_2/driver betweenness_centrality ...";
-        }
-        else if (algorithm == 2)
-        {
-            command = "../buddy_assignment_2/driver connected_components ...";
-        }
-        else if (algorithm == 3)
-        {
-            command = "../buddy_assignment_2/driver triangle_counting ...";
-        }
-        else if (algorithm == 4)
-        {
-            command = "../buddy_assignment_2/driver undirected_csr ...";
-        }
-        else
-        {
-            cout << "Invalid algorithm choice!\n";
-            return;
-        }   
-    cout << "\nAssignment 2 selected.\n";
-    cout << "Assignment 2 algorithms will be added here.\n";
+    cout << "\n====================================\n";
+    cout << "Running Assignment 2...\n";
+    cout << "====================================\n";
+
+    auto start = chrono::high_resolution_clock::now();
+    int result = system(command.c_str());
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double, milli> time = end - start;
+
+    if (result != 0)
+    {
+        cout << "\nError: Program execution failed.\n";
+    }
+    else
+    {
+        cout << "\nExecution Time: " << time.count() << " ms\n";
+    }
 }
 
+// =====================================================
+// RUN ASSIGNMENT 3
+// =====================================================
+
+void runAssignment3(int algorithm)
+{
+    string command;
+
+    if (algorithm == 1)
+    {
+        command = "g++ -O2 -Wall -Wextra -std=c++17 \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\main.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\csr.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\gd_io.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\gd.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\maxflow_io.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\maxflow.cpp\" -o \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\assignment3\" && \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\assignment3\" gd \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\tests\\gd\\gd_01.txt\"";
+    }
+    else if (algorithm == 2)
+    {
+        command = "g++ -O2 -Wall -Wextra -std=c++17 \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\main.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\csr.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\gd_io.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\gd.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\maxflow_io.cpp\" \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\src\\maxflow.cpp\" -o \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\assignment3\" && \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\assignment3\" maxflow \"D:\\DESKTOP FOLDER\\Buddy_assignment\\buddy_assignment_3\\tests\\maxflow\\demo_maxflow.txt\"";
+    }
+    else
+    {
+        cout << "Invalid algorithm choice!\n";
+        return;
+    }
+
+    cout << "\n====================================\n";
+    cout << "Running Assignment 3...\n";
+    cout << "====================================\n";
+
+    auto start = chrono::high_resolution_clock::now();
+    int result = system(command.c_str());
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double, milli> time = end - start;
+
+    if (result != 0)
+    {
+        cout << "\nError: Program execution failed.\n";
+    }
+    else
+    {
+        cout << "\nExecution Time: " << time.count() << " ms\n";
+    }
+}
+
+// =====================================================
+// RUN ASSIGNMENT 4
+// =====================================================
+
+void runAssignment4(int algorithm)
+{
+    string command;
+
+    if (algorithm == 1)
+    {
+        command = "../buddy_assignment_4/assignment4 km ../buddy_assignment_4/tests/km_demo.txt";
+    }
+    else if (algorithm == 2)
+    {
+        command = "../buddy_assignment_4/assignment4 fm ../buddy_assignment_4/tests/fm_demo.txt";
+    }
+    else
+    {
+        cout << "Invalid algorithm choice!\n";
+        return;
+    }
+
+    cout << "\n====================================\n";
+    cout << "Running Assignment 4...\n";
+    cout << "====================================\n";
+
+    auto start = chrono::high_resolution_clock::now();
+    int result = system(command.c_str());
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double, milli> time = end - start;
+
+    if (result != 0)
+    {
+        cout << "\nError: Program execution failed.\n";
+    }
+    else
+    {
+        cout << "\nExecution Time: " << time.count() << " ms\n";
+    }
+}
 
 // =====================================================
 // MAIN
@@ -106,37 +196,24 @@ int main()
     int assignmentChoice;
     int algorithmChoice;
 
-
-    // =================================================
-    // MAIN MENU
-    // =================================================
-
     cout << "\n";
     cout << "====================================\n";
     cout << "            MAIN MENU\n";
     cout << "====================================\n";
     cout << "1. Assignment 1\n";
     cout << "2. Assignment 2\n";
+    cout << "3. Assignment 3\n";
+    cout << "4. Assignment 4\n";
     cout << "====================================\n";
     cout << "Enter your choice: ";
 
     cin >> assignmentChoice;
 
-
-    // =================================================
-    // CHECK ASSIGNMENT CHOICE
-    // =================================================
-
-    if (assignmentChoice != 1 && assignmentChoice != 2)
+    if (assignmentChoice != 1 && assignmentChoice != 2 && assignmentChoice != 3 && assignmentChoice != 4)
     {
         cout << "\nInvalid choice!\n";
         return 0;
     }
-
-
-    // =================================================
-    // ASSIGNMENT 1 MENU
-    // =================================================
 
     if (assignmentChoice == 1)
     {
@@ -152,7 +229,6 @@ int main()
 
         cin >> algorithmChoice;
 
-
         if (algorithmChoice < 1 || algorithmChoice > 3)
         {
             cout << "\nInvalid choice!\n";
@@ -161,12 +237,6 @@ int main()
 
         runAssignment1(algorithmChoice);
     }
-
-
-    // =================================================
-    // ASSIGNMENT 2 MENU
-    // =================================================
-
     else if (assignmentChoice == 2)
     {
         cout << "\n";
@@ -177,15 +247,12 @@ int main()
         cout << "1. betweenness centrality\n";
         cout << "2. connected components\n";
         cout << "3. triangle counting\n";
-        cout << "4. undirected csr\n";
-
         cout << "====================================\n";
         cout << "Enter your choice: ";
 
         cin >> algorithmChoice;
 
-
-        if (algorithmChoice < 1 || algorithmChoice > 4)
+        if (algorithmChoice < 1 || algorithmChoice > 3)
         {
             cout << "\nInvalid choice!\n";
             return 0;
@@ -193,7 +260,50 @@ int main()
 
         runAssignment2(algorithmChoice);
     }
+    else if (assignmentChoice == 3)
+    {
+        cout << "\n";
+        cout << "====================================\n";
+        cout << "          ASSIGNMENT 3\n";
+        cout << "====================================\n";
 
+        cout << "1. Gradient Descent\n";
+        cout << "2. Maxflow\n";
+        cout << "====================================\n";
+        cout << "Enter your choice: ";
+
+        cin >> algorithmChoice;
+
+        if (algorithmChoice < 1 || algorithmChoice > 2)
+        {
+            cout << "\nInvalid choice!\n";
+            return 0;
+        }
+
+        runAssignment3(algorithmChoice);
+    }
+    else if (assignmentChoice == 4)
+    {
+        cout << "\n";
+        cout << "====================================\n";
+        cout << "          ASSIGNMENT 4\n";
+        cout << "====================================\n";
+
+        cout << "1. K-Means Clustering\n";
+        cout << "2. FastMap\n";
+        cout << "====================================\n";
+        cout << "Enter your choice: ";
+
+        cin >> algorithmChoice;
+
+        if (algorithmChoice < 1 || algorithmChoice > 2)
+        {
+            cout << "\nInvalid choice!\n";
+            return 0;
+        }
+
+        runAssignment4(algorithmChoice);
+    }
 
     return 0;
 }
